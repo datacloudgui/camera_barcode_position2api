@@ -17,6 +17,8 @@ import sys
 import requests
 import json
 
+from load_config import config
+
 #### Camera init:
 ap = argparse.ArgumentParser()
 ap.add_argument("-o", "--output", type=str, default="barcodes.csv",
@@ -69,15 +71,19 @@ def send_2_api(barcodeData,position):
     }
     jsonData = json.dumps(load_json)
     postresponse = requests.post(url_logistica,
-                         data=jsonData,
-                         headers=post_headers)
+		data=jsonData,
+        headers=post_headers)
     print("Status code of POST: ", postresponse.status_code)
     return postresponse.status_code
 
 def barcode_parser(barcodeData):
-    pass
+    barcode_parenthesis_start = config()[]
+	barcode_parenthesis_size = config[]
+	barcode_parsed = barcodeData
+	#insert () with de defined sizes.
 
 def position_parser(position):
+	#receive a vector and return a coordinate of the rack in the warehouse
     pass
 
 # loop over the frames from the video stream
